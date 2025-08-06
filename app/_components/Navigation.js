@@ -1,17 +1,31 @@
-import Link from 'next/link'
-import React from 'react'
+import Link from "next/link";
 
-function Navigation() {
+export default function Navigation() {
   return (
-    <div>
-      <ul>
-        <li><Link href= "/">Home</Link></li>
-        <li><Link href= "/cabins">Cabins</Link></li>
-        <li><Link href= "/account">Account</Link></li>
-        <li><Link href= "/about">About</Link></li>
+    <nav className="z-10 text-xl">
+      <ul className="flex gap-16 items-center">
+        <li>
+          <Link
+            href="/cabins"
+            className="hover:text-accent-400 transition-colors">
+            Cabins
+          </Link>
+        </li>
+        <li>
+          <Link
+            href="/about"
+            className="hover:text-accent-400 transition-colors">
+            About
+          </Link>
+        </li>
+        <li>
+          <Link
+            href="/account"
+            className="hover:text-accent-400 transition-colors">
+            Guest area
+          </Link>
+        </li>
       </ul>
-    </div>
-  )
+    </nav>
+  );
 }
-
-export default Navigation
