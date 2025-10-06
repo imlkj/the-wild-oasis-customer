@@ -1,4 +1,4 @@
-import { TrashIcon } from '@heroicons/react/24/solid';
+import { TrashIcon } from "@heroicons/react/24/solid";
 
 function DeleteReservation({ bookingId }) {
   return (
