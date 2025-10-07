@@ -10,7 +10,8 @@ export const metadata = {
 };
 
 async function Page({ searchParams }) {
-  const filter = searchParams?.capacity ?? "all";
+  const params = await searchParams;
+  const filter = params?.capacity ?? "all";
   return (
     <div>
       <h1 className="text-4xl mb-5 text-accent-400 font-medium">
