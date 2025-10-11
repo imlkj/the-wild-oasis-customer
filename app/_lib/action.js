@@ -1,5 +1,6 @@
 "use server";
 
+import { revalidatePath } from "next/cache";
 import { auth, signIn, signOut } from "./auth";
 import { supabase } from "./supabase";
 
@@ -37,7 +38,7 @@ export async function updateGuest(formData) {
     nationalID,
   };
 
-  const { data, error } = await supabase
+  const { error } = await supabase
     .from("guests")
     .update(updateData)
     .eq("id", guestId);
@@ -46,6 +47,8 @@ export async function updateGuest(formData) {
     console.error("Supabase update error", { error, updateData, guestId });
     throw new Error("Guest could not be updated");
   }
+
+  revalidatePath("/account/profile");
 }
 
 export async function signInAction() {
